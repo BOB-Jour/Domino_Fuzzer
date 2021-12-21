@@ -1,0 +1,29 @@
+<!-- https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/multicol/5-levels-of-nesting-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=551-->
+<!-- third_party/blink/web_tests/fast/multicol/5-levels-of-nesting-crash.html -->
+<!DOCTYPE html>
+<html>
+<script>
+<jsfuzzer>
+</script>
+<p>PASS if no crash or assertion failure.</p>
+<div style="columns:1; line-height:6px;">
+    <div style="height:1px;"></div>
+    <div style="columns:1;">
+        <div style="height:6px; break-after:column;"><cssfuzzer></div>
+        <div style="columns:1;">
+            <div style="break-after:column;">
+                <br>
+            </div>
+            <div style="columns:1;">
+                <div style="break-after:column; columns:1;">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:1px;"></div>
+</div>
+<htmlfuzzer>
+</html>

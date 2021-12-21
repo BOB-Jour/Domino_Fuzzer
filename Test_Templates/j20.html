@@ -1,0 +1,24 @@
+<html>
+<script>
+// https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/parser/implicit-head-in-fragment-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=581
+// third_party/blink/web_tests/fast/parser/implicit-head-in-fragment-crash.html
+  function load() {
+    node = document.createElement("M");
+    document.open();
+    node.innerHTML = "<body>";
+    node.innerHTML = "<p>";
+    <jsfuzzer>
+
+    node = document.createDocumentFragment();
+    document.open();
+    node.innerHTML = "<body>";
+    node.innerHTML = "<p>";
+
+    var b = document.body;
+    document.write("<a href='https://bugs.webkit.org/show_bug.cgi?id=25694'>bug 25694</a><br>");
+    document.write(b ? "FAIL: document.body is not null (but at least we didn't crash)" : "PASS");
+    document.close();
+  }
+  load()
+</script>
+</html>

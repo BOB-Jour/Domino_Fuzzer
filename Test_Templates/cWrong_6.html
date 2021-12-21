@@ -1,0 +1,17 @@
+<!--https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/css/scrollbar-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=11-->
+<style>
+    :horizontal {}
+    <cssfuzzer>
+    :vertical {}
+    :double-button {}
+    :single-button {}
+    :no-button {}
+    :corner-present {}
+    :increment {}
+    :decrement {}
+    :start {}
+    :end {}
+    </style>
+    
+    <p>When scrollbar related pseudo types are specified, ASSERT should not be triggered.</p>
+    <p>PASS unless crash.</p>

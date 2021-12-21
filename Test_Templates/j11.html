@@ -1,0 +1,47 @@
+<!-- https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/multicol/anonymous-block-split-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=531 -->
+<!-- third_party/blink/web_tests/fast/multicol/anonymous-block-split-crash.html -->
+
+<html>
+<head>
+<htmlfuzzer>
+<style>
+#test0 { -webkit-column-count: 2; }
+#test1::after { display: block; content: ''; }
+#test2:nth-last-child(2n) { content: ''; }
+#test2 { -webkit-column-span: all; }
+#test4 { float: right; }
+<cssfuzzer>
+</style>
+<script>
+
+window.onload = function() {
+    test0 = document.createElement('div');
+    test0.setAttribute('id', 'test0');
+    document.body.appendChild(test0);
+    test1 = document.createElement('div');
+    test1.setAttribute('id', 'test1');
+    test0.appendChild(test1);
+    test2 = document.createElement('div');
+    test2.setAttribute('id', 'test2');
+    test1.appendChild(test2);
+    test3 = document.createElement('span');
+    test1.appendChild(test3);
+    test3.appendChild(document.createTextNode('A'));
+    test4 = document.createElement('table');
+    test4.setAttribute('id', 'test4');
+    test1.appendChild(test4);
+    test0.style.display = 'run-in'; 
+    test4.style.display = 'table-column';
+    document.body.offsetTop;
+    document.designMode = 'on';
+    document.execCommand('selectall');
+    document.execCommand('inserttext', '');
+    document.body.offsetTop;
+    document.body.innerHTML = "PASS";
+    <jsfuzzer>
+}
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- third_party/blink/web_tests/fast/css/render-quote-crash.html -->
+
+<!DOCTYPE html>
+<html>
+<head id='head'>!
+<style>
+  <cssfuzzer>
+  .quote:first-letter { visibility: inherit; }
+  .quote { -webkit-appearance: button; }
+</style>
+
+<script>
+
+window.onload = function() {
+  var quote = document.createElement('q');
+  document.documentElement.appendChild(quote);
+
+  var quote3 = document.createElement('q');
+  quote3.setAttribute('class', 'quote');
+  quote.appendChild(quote3);
+
+  document.body.offsetTop;
+  body.textContent = head.innerHTML;
+
+  <jsfuzzer>
+}
+</script>
+</head>
+
+<body id='body'>
+  Test passes if it does not CRASH.
+  <htmlfuzzer>
+  <style>
+  * {
+    justify-items: center;
+    quotes: "a" "b" "c" "d";
+  }
+  </style>
+</body>
+</html>

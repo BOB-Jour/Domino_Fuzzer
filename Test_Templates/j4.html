@@ -1,0 +1,18 @@
+<html><head>
+<title>Undo crash</title>
+</head>
+<script>
+
+function load()
+{
+    <jsfuzzer>
+    document.execCommand('InsertText', false, 'b');
+    document.execCommand('InsertText', false, 'l');
+    document.execCommand('InsertText', false, 'a');
+    document.execCommand('InsertText', false, 'h');
+}
+
+load()
+</script>
+</body>
+</html>

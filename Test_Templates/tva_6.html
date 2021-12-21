@@ -1,0 +1,21 @@
+<html>
+<script>
+function run_test() {
+    var nav = window.navigator;
+    document.getElementsByTagName("form")[0].submit();
+    nav.cookieEnabled;
+}
+//이건 이미 취약점으로 분류되어 최근 브라우저에서는 어떤 버그인지까지 알려주면서 막습니다
+//리소스 찾으려고 리다이렉팅 하는데, 데스티네이션에 리소스 없으면 네이게이터가 크래시를 일으키는 모양입니다
+//일단 돌아가긴 하는 것 같아서 템플릿으로 만들어뒀습니다
+</script>
+<body onload="run_test()">
+<form action="resources/test-successful-destination.html" method="GET"></form>
+This tests that navigator.cookieEnabled does not crash the browser after
+the frame navigates away from the original page. <br>
+
+You should not see this page if the test passes.<br>
+<htmlfuzzer>
+<div>
+</body>
+</html>

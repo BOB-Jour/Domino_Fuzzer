@@ -1,0 +1,38 @@
+<!-- https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/block/colspan-under-button-crash.html -->
+<!-- third_party/blink/web_tests/fast/block/colspan-under-button-crash.html -->
+<!DOCTYPE html>
+<html>
+<style>
+<cssfuzzer>
+.c0 { display: inherit; }
+.c10 { display: table-column-group; -webkit-column-span: all; }
+.c11[class$="c11"] { vertical-align: -10; -webkit-column-width: 1px; }
+.c17 { overflow: hidden; position: fixed; }
+.c17::after { position: inherit; content: no-close-quote;
+</style>
+<script>
+window.onload = function() {
+    <jsfuzzer>
+    pElem = document.createElement('p');
+    pElem.setAttribute('class', 'c11');
+
+    citeElem = document.createElement('cite');
+    citeElem.setAttribute('class', 'c10');
+
+    buttonElem = document.createElement('button');
+    buttonElem.setAttribute('class', 'c0');
+
+    document.documentElement.appendChild(pElem);
+    pElem.appendChild(buttonElem);
+    buttonElem.appendChild(citeElem);
+
+    document.documentElement.offsetHeight;
+    buttonElem.setAttribute('class', 'c17');
+    document.documentElement.offsetHeight;
+    document.documentElement.removeChild(pElem);
+
+    document.body.innerHTML = "PASS if no crash or assert in debug";
+}
+</script>
+<htmlfuzzer>
+</html>

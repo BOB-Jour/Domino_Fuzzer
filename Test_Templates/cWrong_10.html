@@ -1,0 +1,22 @@
+<!--https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/lists/list-marker-remove-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=41-->
+<!DOCTYPE html>
+<button></button>
+<script>
+document.designMode="on";
+var steps = [
+    "SelectAll",
+    "InsertUnorderedList",
+    "Italic",
+    "InsertOrderedList",
+    "InsertHorizontalRule",
+    "SelectAll",
+    "InsertUnorderedList",
+    "InsertHorizontalRule",
+    "InsertParagraph",
+    "InsertUnorderedList"
+];
+while (steps.length)
+    document.execCommand(steps.shift(), false);
+<jsfuzzer>
+document.documentElement.innerHTML = 'PASS';
+</script>

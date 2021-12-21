@@ -1,0 +1,31 @@
+<!-- https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/table/table-caption-not-removed-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=551 -->
+<!-- third_party/blink/web_tests/fast/table/table-caption-not-removed-crash.html -->
+
+<!DOCTYPE html>
+<html>
+Test passes if it does not crash.
+<htmlfuzzer>
+<style>
+.flexbox1 + .caption1 { display: table-caption; }
+.flexbox1 { display: -webkit-inline-box; }
+<cssfuzeer>
+</style>
+<script>
+function runTest() {
+    div1 = document.createElement('div');
+    document.documentElement.appendChild(div1);
+    div2 = document.createElement('div');
+    div1.appendChild(div2);
+    cell1 = document.createElement('td');
+    cell1.setAttribute('class', 'caption1');
+    div1.appendChild(cell1);
+    div1.setAttribute('class', 'flexbox1');
+    document.body.offsetTop;
+    div2.setAttribute('class', 'flexbox1');
+    document.body.offsetTop;
+    div2.setAttribute('class', '');
+    <jsfuzzer>
+}
+window.onload = runTest;
+</script>
+</html>

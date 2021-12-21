@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type='text/javascript' charset='utf-8'>
+// third_party/blink/web_tests/fast/dom/gc-4.html
+function print(message) {
+	var paragraph = document.createElement("p");
+	paragraph.appendChild(document.createTextNode(message));
+	document.getElementById("console").appendChild(paragraph);
+}
+
+function test() {
+	for (x = 0; x < 1000; x++) {
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		context.save();
+	}
+	print("passed");
+            <jsfuzzer>
+}
+</script>
+</head>
+<body onload="test();">
+<hr>
+<canvas id='canvas' width='172' height='172'></canvas>
+<div id='console'/>
+</body>
+<htmlfuzzer>
+</html>

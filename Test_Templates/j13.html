@@ -1,0 +1,17 @@
+<!-- https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/frames/frame-unload-crash2.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=531 -->
+<!-- third_party/blink/web_tests/fast/frames/frame-unload-crash2.html -->
+<!DOCTYPE html>
+<html>
+<iframe srcdoc=""></iframe>
+<script>
+window.onload = function() {
+    frames[0].onunload = function() {
+        document.open();
+        document.write("PASS. WebKit didn't crash.");
+        document.close();
+        <jsfuzzer>
+    };
+    frames[0].frameElement.remove();
+};
+</script>
+</html>

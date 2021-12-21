@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<htmlfuzzer>
+<style>
+body:first-letter { color: black; }
+<cssfuzzer>
+</style>
+<script>
+// third_party/blink/web_tests/editing/text-iterator/first-letter-rtl-crash.html
+function run() {
+    <jsfuzzer>
+    document.execCommand('findString', false, '!ABC');
+    document.body.innerHTML = '<br>This test ensures WebKit does not crash when first-letter rule is applied to LTR letters that ' +
+    ' are not visually contiguous to each other.<br>PASS';
+}
+</script>
+<body style="direction: rtl;" onload="run()">!ABC&#x202E;</body>
+</html>

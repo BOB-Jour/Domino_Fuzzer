@@ -1,0 +1,28 @@
+<html>
+<head>
+    Refresh_HTML
+    <meta http-equiv="refresh" content="3"> 
+</head>
+<body>
+</body>
+</html>
+
+<html>
+<script>
+    function poc()
+    {
+        var iframe = document.createElement('iframe');
+        iframe.width = %d; 
+        iframe.height = %d; 
+        iframe.src = './iframe_tc.html';
+        document.body.appendChild(iframe);
+
+        setTimeout( _=> {
+            iframe.remove();
+            location.href = 'http://127.0.0.1:8080/flag?iframe_test'; 
+        }, %d); 
+    }
+</script>
+<body onload="poc()">
+</body>
+</html>

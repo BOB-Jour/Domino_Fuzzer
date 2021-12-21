@@ -1,0 +1,27 @@
+<!--https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/bindings/location-lifetime.html-->
+<!doctype html>
+<iframe id="iframe-for-document.location"></iframe>
+<iframe id="iframe-for-window.location"></iframe>
+<script>
+function test1() {
+  let observation;
+  (function() {
+    <jsfuzzer>
+    let iframe = document.getElementById("iframe-for-document.location");
+    let location = iframe.contentDocument.location;
+  })();
+}
+
+function test2() {
+  let observation;
+  (function() {
+    <jsfuzzer>
+    let iframe = document.getElementById("iframe-for-window.location");
+    let location = iframe.contentWindow.location;
+  })();
+}
+
+test1()
+test2()
+
+</script>

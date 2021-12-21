@@ -1,0 +1,16 @@
+<!--https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/block/body-inline-block-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash&start=31-->
+<html>
+Test passes if it does not crash.
+<script>
+
+function crash() {
+    <jsfuzzer>
+    body1 = document.createElement("body");
+    i1 = document.createElement("i");
+    document.documentElement.appendChild(i1);
+    i1.appendChild(body1);
+    body1.style.display = "inline-block";
+}
+crash()
+</script>
+</html>

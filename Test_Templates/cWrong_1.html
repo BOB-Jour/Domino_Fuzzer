@@ -1,0 +1,25 @@
+<!--https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/web_tests/fast/block/block-add-child-crash.html?q=file:html$%20third_party%2Fblink%2Fweb_tests%20crash-->
+<!DOCTYPE html>
+<html>
+<body>
+WebKit Bug 84606 - ASSERT(beforeChildAnonymousContainer->isTable()); fails in LayoutBlockFlow::addChildIgnoringAnonymousColumnBlocks.<br />
+The test passes if it doesn't CRASH nor ASSERT.
+<style>
+.container { -webkit-column-count: 1; }
+.columnSpan { -webkit-column-span: all; }
+<cssfuzzer>
+</style>
+<li class="container">
+<blockquote id="test">
+<table class="columnSpan"></table>
+</blockquote>
+<textarea></textarea>
+</li>
+<script>
+document.body.offsetTop;
+<jsfuzzer>
+var test = document.getElementById("test");
+test.outerHTML = "PASS";
+</script>
+</body>
+</html>
