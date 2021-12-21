@@ -49,7 +49,7 @@ def main():
                 or 
                 (b"Check failed:".lower() in line.lower()) # for debug mode # case ignore # Check failed:, (dcheck failed:) 
                 or
-                (b"dcheck" in line.lower()) # for debug mode # 실제로 Dcheck 문자열이 뜨는 로그를 못찾아서 혹시나 로그가 다를까봐 임시로 추가해놨습니다. 확인되는 대로 수정하겠습니다
+                (b"dcheck" in line.lower()) # for debug mode 
                 ): 
                 
                 # testcase
