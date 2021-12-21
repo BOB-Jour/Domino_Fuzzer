@@ -54,6 +54,8 @@ def main():
 
                 #set running flag false.
                 subprocess.check_output('taskkill /f /im chrome_asan.exe', shell=True)
+                p.stderr.close()
+                p.stdout.close()
                 DASHBOARD.Chrome_COUNT += 1
                 time.sleep(1)
                 RUN_FLAG = False
