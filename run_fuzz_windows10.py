@@ -8,7 +8,7 @@ import shutil
 import argparse
 import Dashboard
 
-BROWSER_PATH = '~\\Target_Chromium_Path\\chrome.exe'
+BROWSER_PATH = ''
 
 METHOD = None
 
@@ -80,6 +80,10 @@ def set_fuzzing_type(parser):
         os._exit(1)
 
 if __name__ == '__main__':	
+    if(BROWSER_PATH == ''):
+        print("[!] Please set the BROWSER_PATH.")
+        exit(1)
+
     parser = argparse_init()
     set_fuzzing_type(parser)
     try:
